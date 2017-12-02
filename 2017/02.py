@@ -17,6 +17,8 @@ In this example, the spreadsheet's checksum would be 8 + 4 + 6 = 18.
 What is the checksum for the spreadsheet in your puzzle input?"""
 
 import os
+from aoc import get_raw_input
+
 
 def test():
     spreadsheet = [
@@ -30,14 +32,6 @@ def test():
 def corruption_checksum(spreadsheet):
     return sum(map(lambda row: max(row) - min(row),
                    spreadsheet))
-
-
-def get_raw_input(num=None):
-    if not num:
-        num, _ = os.path.basename(__file__).split('.')[0]
-    with open("{}.input".format(num), 'r') as f:
-        txt = f.read()
-    return txt
 
 
 if __name__ == '__main__':
