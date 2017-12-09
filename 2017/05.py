@@ -79,6 +79,7 @@ def process_instrs(instrs, pointer=0, part_2=False):
     """Returns a tuple of the number of jumps taken to exit the list of
     instructions and the final list of instructions)"""
     instrs = instrs.copy()
+    len_instrs = len(instrs)
     instrs_done = 0
 
     while True:
@@ -89,7 +90,7 @@ def process_instrs(instrs, pointer=0, part_2=False):
             instrs[pointer] += 1
         pointer += cur_instr
         instrs_done += 1
-        if pointer < 0 or pointer >= len(instrs):
+        if pointer < 0 or pointer >= len_instrs:
             break
     return (instrs_done, instrs)
 
